@@ -218,4 +218,25 @@
 		a. 通过JS修改元素的内联样式。语法：元素.style.样式名 = 样式值;注意：如果CSS样式名中含有-，这种名称在JS中不合法，需要将该样式名修改为驼峰写法。（通过style属性设置和读取的样式都是内联样式，无法读取样式表中的样式）如果css中含有!important，则拥有最高的优先级，JS修改样式会失败
 		b. 读取元素当前的样式(只读)。语法：元素.currentStyle.样式名（可以用来读取当前元素正在显示的样式，只有IE支持）如果样式没有设置会获取到默认值。在其他浏览器中可以使用：getComputedStyle()方法来获取当前元素正在显示的样式，需要两个参数，第一个是要获取样式的元素，第二个可以传递一个伪元素，一般是null；该方法会返回一个对象，对象中封装了当前元素对应的样式（通过.样式名访问）如果样式没有设置会获取到当前真实的值。该方法不支持IE8及以下。
 		
+	7. 其他样式操作（只读）
+		element.clientWidth/clientHeight 获取可见宽度/高度（包括内容区和内边距），返回值是数字
+		element.offsetWidth/offsetHeight 获取元素整个宽高（包括内容区、内边距和边框），返回值是数字
+		element.offsetParent 获取元素定位父元素，会获取到离当前元素最近的开启了定位的祖先元素
+		element.offsetLeft/offsetTop 获取元素相对于其定位元素的水平/垂直偏移量
+		element.scrollWidth/scrollHeight 获取子元素滚动区域的宽高
+		element.scrollLeft/scrollTop 获取水平/垂直滚动条滚动的距离
+		*当scrollHeight-scrollTop = clientHeight时，说明垂直滚动条滚动到底
+		*当scrollWidth-scrollLeft = clientWidth时，说明水平滚动条滚动到右端（一般没用）
 
+二十三、事件对象（Event对象）
+	当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数。在事件对象中封装了当前事件相关的所有信息。如：鼠标坐标。但是在IE8中，当响应函数被触发时，浏览器不会传递，因为在IE8及以下的浏览器中，是将事件对象作为window对象的属性保存的。
+		兼容写法
+			if(!event){
+				event = window.event;
+			}
+			或
+			event = event || window.event;
+
+	1. clientX / clientY : 用于获取鼠标在当前可见窗口的坐标。
+	2. pageX / pageY ： 用于获取鼠标相对于当前页面的坐标（IE8中不支持）
+	3. 事件冒泡：当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发
