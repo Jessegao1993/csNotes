@@ -251,6 +251,39 @@
 		2. 目标阶段：事件捕获到目标元素
 		3. 冒泡阶段：目标元素上触发事件
 	7. 拖拽
-		01. 鼠标在目标元素上按下时 				onmousedown  (绑定目标)
+		01. 鼠标在目标元素上按下时 			    onmousedown  (绑定目标)
 		02. 鼠标开始移动时，被拖拽元素跟随		 onmousemove （绑定document）
 		03. 鼠标松开时，被拖拽元素固定位置		 onmouseup	  (绑定document)
+		注意：当我们拖拽一个网页中的内容，浏览器会默认去搜索引擎中搜索内容，会导致拖拽功能的异常。可以通过在onmousedown响应函数里最后加上return false取消，但是该方法不兼容IE8。IE8需要用setCapture()和releaseCapture()避免拖拽功能的异常。setCapture()方法只有IE支持，但在火狐中调用时不会报错，所以需要套一层判断或使用逻辑与运算。
+	8. 滚轮事件 
+		onmousewheel为鼠标滚轮滚动的事件，会在滚轮滚动时触发，但是火狐浏览器不支持该属性，在火狐中需要使用DOMMouseScroll来绑定滚动事件，该事件需要通过addEventListener()函数绑定。
+		判断鼠标滚轮滚动的方向：
+			event.wheelDelta;向上滚动是120，向下滚动是-120，不看大小只看正负，但火狐中不支持，需要用event.detail，向上滚动是-3，向下滚动是3。
+		注意：当滚轮滚动时，如果浏览器有滚动条，滚动条会随之滚动，这是浏览器的默认行为，如果不希望发生，则可以return false取消默认行为。
+		使用addEventListener()方法绑定响应函数取消默认行为不能使用return false，需要使用event.preventDefault()取消默认行为，但是IE8不支持;
+	9. 键盘事件
+		键盘事件一般会绑定给一些可以获取到焦点的对象或者是document。
+		1.某个键被按下onkeydown，如果一直按着某个按键，则事件会一直被触发。
+		2.某个键被松开onkeyup
+		3.ketCode可以获取按键编码，可以用来判断哪个按键被按下。
+		4.除了keyCode，事件对象中还提供了几个属性：
+			altKey
+			controlKey
+			shiftKey
+				用来判断alt/control/shift是否被按下，如果被按下返回true，否则返回false
+二十四、BOM对象：包括Window,Navigator,Location,History,Screen
+	- Window对象：代表整个浏览器的窗口，也是网页中的全局对象 
+   	- Navigator对象：代表当前浏览器的信息，通过该对象可以识别不同的浏览器
+   	- Location对象：代表当前浏览器的地址栏信息，可以操作实现页面跳转
+   	- History对象：代表浏览器的历史记录，只能操作浏览器前后翻页
+   	- Screen对象：代表用户的屏幕信息，获取到用户显示器的相关信息
+	 像Navigator,Location,History这些对象在浏览器中都是作为Window对象的属性保存的。
+	 1. Navigator对象
+			一般只会使用userAgent属性判断浏览器信息：它是一个字符串，包含有用来描述浏览器信息的内容。
+	 2. History对象
+			 常用方法：
+			 back()
+			 forward()
+			 go()//需要一个整数作为参数（例如：1表示向前跳转一个页面，-1表示向后跳转一个页面）
+	 3. Location对象
+	
