@@ -271,6 +271,7 @@
 			controlKey
 			shiftKey
 				用来判断alt/control/shift是否被按下，如果被按下返回true，否则返回false
+
 二十四、BOM对象：包括Window,Navigator,Location,History,Screen
 	- Window对象：代表整个浏览器的窗口，也是网页中的全局对象 
    	- Navigator对象：代表当前浏览器的信息，通过该对象可以识别不同的浏览器
@@ -286,4 +287,20 @@
 			 forward()
 			 go()//需要一个整数作为参数（例如：1表示向前跳转一个页面，-1表示向后跳转一个页面）
 	 3. Location对象
-	
+		该对象中封装了浏览器的地址栏信息，直接打印location会获取到当前页面的完整路径。
+		方法：
+			 a. assign()：用来跳转到其他页面，会生成历史记录
+			 b. reload()：重新加载当前页面，如果参数传入true则会强制清空缓存
+			 c. replace()：用新页面替换当前页面，不会生成历史记录，不能使回退按钮回退 
+
+二十五、定时调用（window对象的四个方法:setInterval/clearInterval/setTimeout/clearTimeout）
+	如果希望一段程序，可以每间隔一段时间调用一次，需要使用定时调用
+	1.setInterval：可以将一个函数每间隔一段时间执行一次
+		参数：
+			1.回调函数，该函数会每间隔一段时间被调用一次
+			2.间隔的时间，单位是毫秒 
+			3.返回值：一个Number类型的数据，作为定时器的唯一标识 
+	2.clearInterval：用来关闭一个定时器
+		参数：一个定时器标识
+		在开启定时器之前，需要把当前元素上其他的定时器关闭。
+

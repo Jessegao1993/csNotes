@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>切换图片练习</title>
+    </head>
+    <body>
+        <style>
+            #img1{
+                width: 400px;
+                height: auto;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var img1 = document.getElementById("img1");
+                var imgArr = ["img/autoswitch1.jpg","img/autoswitch2.jpg","img/autoswitch3.jpg"];
+                var index = 0;
+                var btn01 = document.getElementById("btn01");
+                var btn02 = document.getElementById("btn02");
+                var timer;
+                btn01.onclick = function(){
+                    clearInterval(timer);
+                    timer = setInterval(function(){
+                    //running
+                    index++;
+                    
+                    //check stop better code : index = index%imgArr.length;
+                    if(index>=imgArr.length){
+                        //clearInterval(timer);
+                        index = 0;
+                       
+                    }
+
+                    img1.src = imgArr[index];
+
+                },1000);
+                };
+                btn02.onclick = function(){
+                    clearInterval(timer);
+                }
+               
+            }
+        </script>
+        <img id="img1" src="img/autoswitch1.jpg">
+        <br><br>
+        <button id="btn01">开始</button>
+        <button id="btn02">停止</button>
+    </body>
+</html>
