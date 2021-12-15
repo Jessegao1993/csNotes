@@ -5,6 +5,57 @@
         <title>使用键盘方向键移动DIV</title>
     </head>
     <body>
-        
+        <style>
+            #div1{
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                background-color: red;
+            }
+        </style>
+         <script>
+            /*
+                上38
+                下40
+                左37
+                右39
+            */ 
+             window.onload = function(){
+                var box1 = document.getElementById("div1");
+                var speed = 20;
+                var dir = 0;
+
+                 //bind the event to control the direction
+                document.onkeydown = function(event){
+                    event = event || window.event;
+                    dir = event.keyCode;
+                   
+                 }
+                 document.onkeyup = function(){
+                    dir = 0;
+                 }
+
+                 //set a timer to control the movement  
+                setInterval(function(){
+                    switch(dir){
+                        case 37:
+                            box1.style.left = box1.offsetLeft - speed + "px";
+                            break;
+                        case 38:
+                            box1.style.top = box1.offsetTop - speed + "px";
+                            break;
+                        case 39:
+                            box1.style.left = box1.offsetLeft + speed + "px";
+                            break;
+                        case 40:
+                            box1.style.top = box1.offsetTop + speed + "px";
+                            break;
+                    }
+                 },30);
+
+                 
+             }
+        </script>
+        <div id="div1"></div>
     </body>
 </html>
