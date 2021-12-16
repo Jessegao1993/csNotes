@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>按钮移动div</title>
+    </head>
+   <body>
+       <style>
+           *{
+               margin:0;
+               padding:0;
+           }
+           #box1{
+               position: absolute;
+               width: 100px;
+               height:100px;
+               background-color: red;
+               left: 0;/*avoid get auto for IE's left style*/
+           }
+       </style>
+       <script>
+           function getStyle(obj,name){
+                    if(window.getComputedStyle){
+                        return getComputedStyle(obj,null)[name];
+                    }else{
+                        return obj.currentStyle[name];
+                    }
+               }
+
+           window.onload = function(){
+               var btn1 = document.getElementById("btn1");
+               var box1 = document.getElementById("box1");
+               //get the value of any style if the element has one
+               var timer;
+                btn1.onclick = function(){
+                    clearInterval(timer);
+                    timer =  setInterval(function(){
+                        var oldValue = parseInt(getStyle(box1,"left"));
+                        var newValue = oldValue + 10;
+                        if(newValue>800){
+                            newValue = 800;
+                        }
+                        box1.style.left = newValue + "px";
+
+                        if(newValue === 800){
+                        clearInterval(timer);
+                     }  
+
+                     },50);
+
+                     
+                }
+           }
+       </script>
+       <button id="btn1">点击按钮使div向右移动</button>
+       <br><br>
+       <div id="box1"></div>
+   </body>
+</html>
