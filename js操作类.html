@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>js操作类</title>
+        <script src="js/tools.js"></script>
+    </head>
+    <body>
+        <style>
+            .b1{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+            .b2{
+                width: 200px;
+                height: 200px;
+                background-color: yellow;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var btn1 = document.getElementById("btn1");
+                btn1.onclick = function(){
+                    var box = document.getElementById("box");
+                    toggleClass(box,"b2");
+                }
+            }
+        </script>
+        <button id="btn1">点击按钮修改div</button>
+        <br><br>
+        <div id="box" class="b1"></div>
+    </body>
+</html>

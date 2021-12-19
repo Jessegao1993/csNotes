@@ -38,3 +38,27 @@ function getStyle(obj,name){
              }  
       },50);
 } 
+//给元素添加类的函数
+function addClass(obj,cn){
+    if(!hasClass(obj,cn)){
+        obj.className += " "+cn;
+    }	
+}
+//判断元素是否已经拥有某个类的函数
+function hasClass(obj,cn){
+    var reg = new RegExp("\\b"+cn+"\\b");
+    return reg.test(obj.className);
+}
+//移除类
+function removeClass(obj,cn){
+    var reg = new RegExp("\\b"+cn+"\\b");
+    obj.className = obj.className.replace(reg,"");
+}
+//切换类
+function toggleClass(obj,cn){
+    if(hasClass(obj,cn)){
+        removeClass(obj,cn)
+    }else{
+        addClass(obj,cn);
+    }
+}
