@@ -52,6 +52,7 @@ hello:
 	}
 ```
 - break和continue的区别:break用来结束当前循环，continue用来跳过当前循环。
+- 三元表达式在使用过程中不能使用break,continue等语句，否则会报错。
 ***
 ### 对象
 #### 对象的分类

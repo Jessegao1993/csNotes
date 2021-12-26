@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>for练习1</title>
+    </head>
+    <body>
+    <script>
+        /*
+        打印1-100之间所有奇数之和
+        */ 
+       /*
+       for循环 使用三元表达式
+       var sum = 0;
+        for(var i=1;i<=100;i++){
+            (i%2==0) ? sum+=0 : sum+=i;
+        }
+        alert(sum);
+       */
+        /*
+        for 循环 使用if语句
+        var sum = 0;
+        for(var i=1;i<=100;i++){
+            if(i%2!=0){
+                sum+=i;
+            }
+        }
+        alert(sum);
+        */
+       // while循环
+       var i = 1;
+       var sum = 0;
+       while(i<=100){
+            if(i%2!=0){
+                sum+=i;
+            }
+            i++; 
+       }
+       alert(sum);
+    </script>
+    </body>
+</html>
