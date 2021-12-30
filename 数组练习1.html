@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>数组的练习</title>
+    </head>
+    <body>
+    <script>
+// 创建Person构造函数
+function Person(name,age){
+    this.name = name;
+    this.age = age;
+}
+// 使用该构造函数创建四个Person对象
+var Adam = new Person("Adam",19);
+var Bob = new Person("Bob",14);
+var Candy = new Person("Candy",23);
+var David = new Person("David",10);
+// 将四个对象添加到一个数组中去
+var perArr = [Adam,Bob,Candy,David];
+/* 编写一个函数，将perArr中的满18岁的Person提取出来，
+然后封装到一个新的数组中并返回arr
+*/
+function getAdult(arr){
+    var newarr = [];
+    for(var i=0;i<arr.length;i++){
+        if(arr[i].age>=18){
+            newarr.push(arr[i]);
+           
+        }
+    }
+    return newarr;
+}
+
+console.log(getAdult(perArr));
+    </script>
+    </body>
+</html>

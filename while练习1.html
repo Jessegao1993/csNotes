@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>while练习1</title>
+    </head>
+    <body>
+    <script>
+    //   若年利率为5%，从1000增长到5000需要多少年
+    // 利率公式： 本金*利率*时间 = 利息
+    // 本息和 本金 +（本金*利率）
+    var time = 0;
+    var start = 1000;
+    while(start<5000){
+        start = start + (start*0.05);
+        time++;
+    }
+    alert("需要"+time+"年");
+    </script>
+    </body>
+</html>
