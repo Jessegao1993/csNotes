@@ -233,4 +233,15 @@
           3. 设置字体样式：font-family和font-weight
        3. 通过实体设置：<i class="图标类名">&#x字体图标编码;</i>
     3. 行高：文字占有的实际高度，可通过line-height设置，可使用一个大小或一个整数（字体的指定倍数）
-    4. 字体框：就是字体存在的格子，设置font-size实际上就是在设置字体框的高度
+        1. 字体框：就是字体存在的格子，设置font-size实际上就是在设置字体框的高度
+        2. 行高会在字体框的上下平均分配
+        3. 所以可以将行高设置为和高度相同的值，则单行文字会在一个元素中垂直居中
+        4. 行高常用来设置文字行间距，行间距=行高-字体大小
+    4. 字体简写属性：font: 字体大小/行高 字体族 （行高可省略）
+    5. 文本样式
+       1. text-align 文本对齐方式 left/right/center/justify
+       2. vertical-align 元素垂直对齐方式 baseline/top/bottom/middle
+       3. 因为图片基线产生的空隙可使用设置vertical-align的方式解决
+       4. text-decoration 文本装饰 none/underline/line-through/overline
+       5. white-space 如何处理空白 nomal/nowrap不换行/pre保留空白
+       6. text-overflow:ellipsis 设置多出内容用省略号表示
