@@ -225,5 +225,12 @@
           2. san-serif 非衬线字体
           3. monospace 等宽字体
        3. 用户使用服务器字体方法：@font-face
-    2. 图标字体（icofont）：可将图标设置为字体，通过font-face的形式对字体进行引入（例如fontawesome.com）
+    2. 图标字体（icofont）：可将图标设置为字体，通过font-face的形式对字体进行引入（例如fontawesome.com或阿里的icofont）
        1. 将css和webfonts移入项目，通过css引入后使用<i class="用的图标的类名"></i>
+       2. 通过伪元素设置图标字体:
+          1. 通过before找到要设置图标的元素
+          2. 在content中设置字体编码
+          3. 设置字体样式：font-family和font-weight
+       3. 通过实体设置：<i class="图标类名">&#x字体图标编码;</i>
+    3. 行高：文字占有的实际高度，可通过line-height设置，可使用一个大小或一个整数（字体的指定倍数）
+    4. 字体框：就是字体存在的格子，设置font-size实际上就是在设置字体框的高度
