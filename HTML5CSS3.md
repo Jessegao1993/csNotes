@@ -245,3 +245,21 @@
        4. text-decoration 文本装饰 none/underline/line-through/overline
        5. white-space 如何处理空白 nomal/nowrap不换行/pre保留空白
        6. text-overflow:ellipsis 设置多出内容用省略号表示
+    6. 背景
+       1. 背景颜色：background-color
+       2. 背景图片：background-image:url(路径)
+          1. 可同时设置背景图片和背景颜色，此时背景颜色成为背景图片的背景色
+          2. 若背景图片小于元素，背景图片会自动在元素中平铺将元素铺满
+          3. 若背景图片大于元素，一部分背景图片会无法完全显示
+       3. 背景重复：background-repeat:repeat/repeat-x/repeat-y/no-repeat
+       4. 背景位置：background-position:
+          1. 通过top left right bottom center几个词设置，需要设置两个词，如果只写一个则第二个默认为center
+          2. 通过偏移量设置：水平方向偏移量  垂直方向偏移量
+       5. 背景范围：background-clip:border-box(背景会出现在边框下)/padding-box(背景会出现在内容区和内边距)/content-box(背景只会出现在内容区)
+       6. 背景偏移量计算原点：background-origin:border-box(背景图片的偏移量从边框处开始计算)/padding-box(背景图片的偏移量从内边距开始计算)/content-box(背景图片的偏移量从内容区开始计算)
+       7. 背景图片的大小：background-size:
+          1. 宽度 高度（第二个值不写为auto）
+          2. cover （图片比例不变，将元素铺满，图片可能会显示不全）
+          3. contain （图片比例不变，将图片在元素中完整显示，图片可能无法铺满元素）
+       8. 背景图片是否跟随元素移动：background-attachment:scroll（背景图片会跟随元素移动）/fixd（背景图片不会跟随元素移动）/
+       9. 背景属性简写：background:顺序随意，无必须写的要求，但是background-size必须写在background-position后面，用/隔开，background-origin必须在background-clip前面
