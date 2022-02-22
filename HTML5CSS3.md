@@ -30,6 +30,22 @@
     4. 可使用` href="javascript:;"`作为占位符使用
 -  img：属于自结束标签，替换元素，引入图片的路径规则和超链接一致
 -  audio：引入音频文件，属性controls/autoplay/loop，可用src属性或者内部source标签配合内部src指定文件（可指定多个文件，在老版解决兼容性问题）。可使用embed标签支持IE8。video标签引入视频使用方法类似audio
+-  表格 
+   1. table /tr 行/td 单元格
+   2. 横向合并单元格 `<td colspan="2">C4</td>`
+   3. 纵向合并单元格 `<td rowspan="2">C4</td>`
+   4. 长表格
+      1. 头部 <thead>/主体 <tbody>/底部 <tfoot> /头部单元格 <th>
+-  表单 form
+   1. `<form action="">` action指定表单指定服务器的地址
+   2. 提交按钮 `<input type="submit" value="按钮文字">`,input是自结束标签
+   3. 数据要提交到服务器中，必须为元素指定一个name属性，如文本框`<input type="text" name="username">`
+   4. 密码框 `<input type="password" name="pwd">`
+   5. 单选框 `<input type="radio" name="radio" value="必须有" checked>` 一组，checked可将单选按钮设置为默认选中
+   6. 多选框 `<input type="checkbox" name="radio" value="必须有" checked>` 一组，checked可将单选按钮设置为默认选中
+   7. 下拉列表 `<select name=""><option value="1">选项一</option></select>` 
+   8. 普通按钮 `<input type="button" value="按钮">`
+   9. 颜色 `<input type="color">`
 ---
 
 ### CSS3
@@ -263,3 +279,17 @@
           3. contain （图片比例不变，将图片在元素中完整显示，图片可能无法铺满元素）
        8. 背景图片是否跟随元素移动：background-attachment:scroll（背景图片会跟随元素移动）/fixd（背景图片不会跟随元素移动）/
        9. 背景属性简写：background:顺序随意，无必须写的要求，但是background-size必须写在background-position后面，用/隔开，background-origin必须在background-clip前面
+       10. CSS-Sprite (雪碧图，只适用于背景图片): 解决图片闪烁问题，可将多个小图片统一保存到一个大图片中，通过调整background-position切换显示图片的部分，这样图片会同时加载到网页中，可以避免图片闪烁问题。
+       11. 渐变（对老版本IE兼容不好）
+           1.  线性渐变：background-image:linear-gradient(指定方向，开头颜色，结尾颜色)
+               1.  指定方向：to left/to right/to bottom/to top/XXX deg(指定旋转度数)
+               2.  渐变可以同时指定多个颜色，多个颜色默认情况下平均分布，也可以手动指定渐变分布情况
+               3.  repeating-linear-gradient()可以平铺的线性渐变（重复平铺）
+           2. 径向渐变：background-image:radial-gradient(开头颜色，结尾颜色)
+              1. 默认情况下在正方形元素内部渐变径向渐变的形状为圆形，在长方形内部径向渐变的形状为椭圆形，也可手动指定径向渐变的大小
+    7. 表格
+       1. 边框间距：border-spacing:0px;
+       2. 设置边框合并：border-collapse:collapse
+       3. 浏览器会自动创建tbody并把tr全放进其中，所以tr不是table子元素，不能用table的子元素选择器选中tr
+       4. td可通过vertical-align/text-align设置元素居中，可配合display:table-cell实现元素在父元素中完全居中
+         
