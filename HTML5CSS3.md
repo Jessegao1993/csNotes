@@ -46,6 +46,7 @@
    7. 下拉列表 `<select name=""><option value="1">选项一</option></select>` 
    8. 普通按钮 `<input type="button" value="按钮">`
    9. 颜色 `<input type="color">`
+   10. 属性：readonly/disable/autocomplete/autofocus 
 ---
 
 ### CSS3
@@ -292,4 +293,27 @@
        2. 设置边框合并：border-collapse:collapse
        3. 浏览器会自动创建tbody并把tr全放进其中，所以tr不是table子元素，不能用table的子元素选择器选中tr
        4. td可通过vertical-align/text-align设置元素居中，可配合display:table-cell实现元素在父元素中完全居中
-         
+- 过渡 transition：可以指定一个属性发生变化时的切换方式，可简写以下属性
+   1. 属性
+      1. transition-property: 指定要过渡的属性，如width，多个属性用逗号隔开，所有属性用all
+      2. transition-duration: 指定过渡持续时间（s和ms），如2s
+      3. transition-timing-function: 过渡的时序函数(过渡执行方式)，如ease(默认值，先加速后减速)/linear(匀速)/ease-in(加速)/ease-out(减速)/ease-in-out(急加速减速)/cubic-bezier()/steps()分步执行，可设置第二个参数start/end设置何时开始执行过渡
+      4. transition-delay: 指定过渡延迟时间
+- 动画：可自动触发动态效果
+   1. 设置动画效果，必须先设置一个关键帧，关键帧设置了动画执行的每个步骤
+   ```
+   @keyframes test{
+      /*动画的开始位置，也可写0%*/
+      from{ }
+      /*动画的结束位置，也可写100%*/
+      to{ }
+   }
+   ```
+   2. animation-name(对当前元素生效的关键帧名):test
+   3. animation-duration: 动画持续时间
+   4. amination-delay:动画的延时
+   5. amination-timing-function: 动画的时序函数
+   6. animation-iteration-count: 动画执行次数，可选具体次数或infinite
+   7. animation-direction: 动画运行方向，默认nomal，代表每次都从from到to运行/reverse 反向执行/alternate 重复执行动画时往复执行/alternate reverse
+   8. animation-play-state: 设置动画执行状态，默认running/paused
+   9. animation-fill-mode: 填充模式，默认none，动画执行完毕元素回到原来位置/forwards动画执行完毕元素会停在动画结束位置/backwards动画延时等待时，元素处于开始位置/both
