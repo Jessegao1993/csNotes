@@ -317,3 +317,29 @@
    7. animation-direction: 动画运行方向，默认nomal，代表每次都从from到to运行/reverse 反向执行/alternate 重复执行动画时往复执行/alternate reverse
    8. animation-play-state: 设置动画执行状态，默认running/paused
    9. animation-fill-mode: 填充模式，默认none，动画执行完毕元素回到原来位置/forwards动画执行完毕元素会停在动画结束位置/backwards动画延时等待时，元素处于开始位置/both
+- 变形 transform：设置元素变形效果，不影响页面布局，可写多个变形，用空格隔开
+   1. 平移
+      1. translateX() 沿X轴,参数可为具体数值或百分比（相对于自身）
+      2. translateY() 沿Y轴,参数可为具体数值或百分比（相对于自身）
+      3. translateZ() 沿Z轴，默认情况下无近大远小效果，如果想看到此效果需要给html设置perspective属性，即网页视距离
+   2. 旋转：使元素沿着XYZ轴旋转指定的角度
+      1. rotateX() 沿X轴，参数可为deg/turn，如果想看到此效果需要给html设置perspective属性，效果为俯仰
+      2. rotateY() 沿Y轴，参数可为deg/turn，如果想看到此效果需要给html设置perspective属性，效果为左右侧
+      3. rotateZ() 沿Z轴，参数可为deg/turn，当XY轴转动后Z轴视觉效果也会不同
+   3. backface-visibility 设置是否显示元素的背面
+   4. transform-style:preserve-3d 开启3D变形效果
+   5. 缩放 scale
+      1. scaleX() 沿X轴缩放
+      2. scaleY() 沿Y轴缩放
+      3. scale() 双方向缩放
+   6. transform-origin 变形的原点：center默认从中间/0 0/20px 20px
+- less：css预处理语言
+  1. 选择器支持嵌套，子选择器写在父选择器内部，增加可读性
+  2. //是less中的单行注释，不会被解析到css中（css的注释则会被解析到css文件中）
+  3. 变量：可存储任意值
+     1. 语法：@变量名：变量值，直接使用时以@变量名的形式使用即可，作为类名或一部分值使用，以@{变量名}的形式使用
+     2. 出现多个重复变量名，调用时遵循就近原则
+  4. 父元素选择器：&
+     1. &表示外层父元素
+  5. 扩展：extend 对当前选择器扩展指定选择器的样式；选择器() 直接对指定样式进行引用，相当于复制样式（mixins 混合）
+  6. 混合：mixins 语法为：类选择器(){} 
