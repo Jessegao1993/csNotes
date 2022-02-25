@@ -343,3 +343,55 @@
      1. &表示外层父元素
   5. 扩展：extend 对当前选择器扩展指定选择器的样式；选择器() 直接对指定样式进行引用，相当于复制样式（mixins 混合）
   6. 混合：mixins 语法为：类选择器(){} 
+     1. 混合函数中可以直接设置变量
+      ```
+      .test(@w){
+         width:@w;
+         height:100px;
+         border:1px solid red;
+      }
+      div{
+         .test(200px);
+      }
+      ```
+     2. 调用混合函数，按顺序传递参数
+     3. 混合函数的参数中可以设置默认值，如`.test(@w:100px,@h)`
+  7. 在less中所有的数值都可以直接进行计算
+  8. @import可以将其他less引入当前less, 可以对Less进行模块化处理
+- 弹性盒 flex: 新的布局手段，用来代替浮动完成布局
+  1.  弹性容器：通过display:flex/inline-flex设置弹性容器
+  2.  弹性元素：弹性容器的子元素（弹性项），一个元素可以同时是弹性元素和弹性容器
+  3.  主轴：弹性元素的排列方向
+  4.  侧轴：与主轴垂直方向的
+  5.  弹性容器的样式
+     1. flex-direction 指定容器中弹性元素排列方式 默认row 水平排列/row reverse 反向水平排列/column纵向排列/column reverse 反向纵向排列
+     2. flex-wrap 设置弹性元素是否自动换行，默认nowrap/wrap 元素沿辅轴自动换行/wrap-reverse
+     3. flex-flow 是flex-wrap和flex-direction的简写属性
+     4. justify-content 主轴元素如何排列，默认flex-start 元素沿主轴自左排/flex-end 元素沿主轴自右排/center 元素沿主轴居中排/space-around 空白分配到元素两侧/space-evenly 空白分布到元素单侧，兼容性不好/space-between 空白分布到元素间
+     5. align-items 元素在辅轴上如何对齐，默认stretch 每行元素高度一致/flex-start 元素不拉伸，沿辅轴起边对齐/flex-end/center/baseline 基线对齐
+     6. align-content 辅轴元素空白分配，默认flex-start /flex-end /center /space-around /space-evenly /space-between 
+  6.  弹性元素的样式
+      1. align-self: 覆盖当前弹性容器上的align-items
+      2. flex-grow 指定弹性元素的伸展系数（父元素有多余空间时，子元素如何伸展，父元素剩余空间会按照比例进行分配），默认值是0
+      3. flex-shrink 指定弹性元素的收缩系数（父元素空间不足容纳所有子元素时，子元素如何收缩），默认值是1，0为不收缩
+      4. flex-basis 元素在主轴上的基础长度，默认值是auto，如果主轴是横向则指定的是元素宽度，如果主轴是纵向则指定的是元素高度
+      5. flex 简写弹性元素的三个样式2.3.4.
+      6. order 参数是整数，元素的排列顺序，小数在前
+- 像素
+  1. CSS像素：编写网页时使用的像素，如`width:100px`
+  2. 物理像素：屏幕是由一个一个发光的小点组成的，分辨率说的就是屏幕中小点的数量，浏览器需要将CSS像素转换成物理像素，默认在PC端，一个CSS像素等于一个物理像素，但一个CSS像素最终由几个物理像素决定由设备和浏览器决定
+  3. viewport 视口，屏幕中用来显示网页的区域，默认CSS像素是1920px，默认情况下移动端网页会将视口设为980px以保证正常访问，若网页宽度超过980px，移动端浏览器会自动对网页缩放以完整显示网页
+  4. 不同屏幕的单位像素大小不同，像素越小越清晰 
+  5. 移动端需要通过meta设置好视口大小：`<meta name="viewport" content="width=device-width,initial-scale=1.0">`
+     1. 完美视口：将像素比设置为最佳像素比的视口大小（device-width表示设备宽度，即完美视口）
+  6. 单位：移动端不能再使用px布局
+     1. vw：表示视口的宽度viewport width（100vw=一个视口的宽度，1vw=1%视口的宽度），移动端都支持
+     2. 网页中最小字体大小是12px，小于其的字体会被自动设置为12
+     3. 可设置html的font为一个大小适中的vw，其他单位用rem对应
+- 响应式布局
+  1. 媒体查询
+     1. 语法：@media 查询规则{}
+     2. 查询规则
+        1. 媒体类型(all/print/screen/speech)，可使用逗号连接多个类型，可在媒体类型前加only，表示只有该类型应用，可兼容一些老版本浏览器
+        2. 媒体特性(width视口宽度/height视口高度/min-width 视口大于指定宽度时生效/max-width)
+        3. 常用断点：/768px/992px/1200px，区间范围用and连接，`@media only screen and (min-width:500px) and (max-width:700px)`
