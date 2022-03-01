@@ -1,8 +1,9 @@
 ## Javascript 基础笔记
 ---
 ### 基本数据类型的坑
-	- NaN 也是一个数字，用typeof会返回number
-	- null 用来表示一个空对象，用typeof会返回object
+	- NaN 也是一个数字，用typeof会返回'number'
+	- null 用来表示一个空对象，用typeof会返回'object'
+	- typeof 返回数据类型的字符串表达
 ***
 ### 数据类型的转换
 #### 转为String
