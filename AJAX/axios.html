@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios发送AJAX请求</title>
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.js"></script>
+</head>
+<body>
+    <button>GET</button>
+    <button>POST</button>
+    <button>AJAX</button>
+    <script>
+        const btn = document.querySelectorAll('button')
+        btn[0].onclick = function(){
+            //get请求
+            axios.get('http://127.0.0.1:8000/axios-server',{
+                params: {
+                    ID: 12345
+                }
+            })
+
+        }
+    </script>
+</body>
+</html>
