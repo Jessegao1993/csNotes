@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise基本语法</title>
+</head>
+<body>
+    <script>
+        //实例化promise对象,其状态分为：初始化、成功、失败
+        const p = new Promise(function(resolve,reject){
+            setTimeout(() => {
+                //
+                // let data = '数据库中的用户数据'
+                // resolve(data)
+
+                let err = '数据库调用失败'
+                reject(err)
+
+            }, 2000);
+        })
+        //调用 promise对象的then方法
+        p.then(function(value){
+            console.log(value)
+        },function(reason){
+            console.error(reason)
+        })
+    </script>
+</body>
+</html>

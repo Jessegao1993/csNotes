@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise then方法</title>
+</head>
+<body>
+    <script>
+        //创建promise对象
+        const p = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve('用户数据')
+            },1000)
+        })
+        //then方法的返回结果是promise对象，result由回调函数的执行结果决定的
+        //then方法可以链式调用
+        const result = p.then((value)=>{
+            console.log(value)
+        },(reason)=>{
+            console.warn(reason)
+        })
+    </script>
+</body>
+</html>

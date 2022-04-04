@@ -30,7 +30,7 @@ app.all('/server',(request,response)=>{
 
 app.all('/json-server',(request,response)=>{
     response.setHeader('Access-Control-Allow-Origin','*');
-    response.setHeader('Access-Control-Allow-Headers','*');
+    response.setHeader('Access-Control-Allow-Methods','*');
     //响应一个数据
     const data = {
         name:'atguigu'

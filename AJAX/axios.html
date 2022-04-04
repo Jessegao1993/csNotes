@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>axios发送AJAX请求</title>
-    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.js"></script>
+    <!-- <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.js"></script> -->
+    <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
 </head>
 <body>
     <button>GET</button>
@@ -17,10 +18,58 @@
             //get请求
             axios.get('http://127.0.0.1:8000/axios-server',{
                 params: {
-                    ID: 12345
-                }
+                    id: 100
+                },
+                // headers:{
+                //     name:'jesse',
+                //     age:30
+                // }
+            }).then(value=>{
+                console.log(value)
             })
 
+        }
+
+        btn[1].onclick = function(){
+            axios.post('http://127.0.0.1:8000/axios-server',{
+                    username:'admin',
+                    password:'admin'
+                },{
+                //url
+                params:{
+                    id:200,
+
+                },
+                //请求头
+                headers:{
+                    width:180,
+                    height:180
+                },
+            })
+        }
+
+        btn[2].onclick = function(){
+            axios({
+                //请求方法
+                method:'POST',
+                //url
+                url:'http://127.0.0.1:8000/axios-server',
+                //url参数
+                params:{
+                    vip:10,
+                    level:30
+                },
+                //头信息
+                headers:{
+                    a:100,
+                    b:200
+                },
+                // 请求体
+                data:{
+                    username:'admin',
+                    password:'admin'
+                }
+            })
         }
     </script>
 </body>

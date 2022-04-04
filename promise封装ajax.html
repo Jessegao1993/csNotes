@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise封装ajax</title>
+</head>
+<body>
+    <script>
+        //接口地址 https://api.apiopen.top/getJoke
+        const p = new Promise(function(resolve,reject){
+             //创建对象
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET','https://api.apiopen.top/getJoke');
+        xhr.send();
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState===4) {
+                if (xhr.status>=200&&xhr.status<300) {
+                    resolve(xhr.response)
+                }else{
+                    reject(xhr.status)
+                }   
+            }
+            }
+        })
+       //为promise指定成功和失败的回调
+       p.then(function(value){
+            console.log(value)
+       },function(reason){
+            console.error(reason)
+       })
+    </script>
+</body>
+</html>

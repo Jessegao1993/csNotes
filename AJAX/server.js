@@ -71,6 +71,17 @@ app.all('/axios-server', (request, response)=>{
         //设置响应体
     response.send('Hello Axois AJAX'); 
 });
+//fetch服务
+app.all('/fetch-server', (request, response)=>{
+    //设置响应头，允许跨域
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    response.setHeader("Access-Control-Allow-Credentials", "true");
+    response.setHeader("Access-Control-Allow-Methods", "*");
+    response.setHeader("Access-Control-Allow-Headers", "*");
+
+        //设置响应体
+    response.send('Hello Axois fetch'); 
+});
 //4. 监听端口启动服务
 app.listen(8000, ()=>{
     console.log("服务已经启动, 8000 端口监听中....");
