@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <script>
+        //Map,升级版的对象，声明
+        let m = new Map()
+        //添加元素
+        m.set('name','Jessegao')//两个参数，第一个是键，第二个是值
+        m.set('age',30)
+        m.set('place','Asia')
+
+        let key = {
+            school:'atguigu'
+        }
+        m.set(key,['beijing','shanghai','shenzhen'])//键是对象，值是数组
+
+        //删除
+        m.delete('name')
+        //获取
+        //console.log(m.get(key))
+        //遍历,结果的每一项是一个键值数组
+        for (const item of m) {
+            console.log(item)
+        }
+        //清空
+        m.clear()
+        //console.log(m)
+    </script>
+</body>
+</html>

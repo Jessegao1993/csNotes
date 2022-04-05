@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 类继承</title>
+</head>
+<body>
+    <script>
+        //父类
+        class Phone{
+            constructor(brand,price){
+                this.brand = brand
+                this.price = price
+            }
+            call(){
+                console.log('我可以打电话')
+            }
+        }
+        //子类
+        class SmartPhone extends Phone{
+            constructor(brand,price,color){
+                super(brand,price)
+                this.color = color 
+            }
+            photo(){
+                console.log('我可以拍照')
+            }
+        }
+        //实例化
+        const xiaomi = new SmartPhone('小米',1799,'red')
+        console.log(xiaomi)
+    </script>
+</body>
+</html>
