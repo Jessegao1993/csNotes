@@ -1,5 +1,28 @@
 {
   "dependencies": {
     "express": "^4.17.3"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "csnotes",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "browserify": "^17.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jessegao1993/csNotes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jessegao1993/csNotes/issues"
+  },
+  "homepage": "https://github.com/Jessegao1993/csNotes#readme",
+  "description": ""
 }

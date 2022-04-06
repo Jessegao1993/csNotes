@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 模块化</title>
+</head>
+<body>
+    <script type="module">
+        //1. 通用的导入方式
+        // import * as m1 from './m1.js'
+        // console.log(m1)
+        //分别暴露和统一暴露的引入写法一致
+        //import * as m3 from './m3.js'
+        //默认暴露的调用写法需要加上default
+        
+        //m3.default.change()
+        //---------------------------------------
+
+        //2. 解构赋值形式
+        // import {name,teach} from './m1.js'
+        // console.log(name)
+
+        // import{name as person,findJob} from './m2.js'//使用as+别名的形式避免重名问题
+        // console.log(person)
+
+        //解构赋值针对默认暴露
+        // import{default as m3} from './m3.js'
+        // console.log(m3)
+        //----------------------------------------
+
+        //3. 简便形式，只能针对默认暴露
+        // import m3 from './m3.js'
+        // console.log(m3)
+    </script>
+
+    <script type="module" src="./js/app.js">
+
+    </script>
+</body>
+</html>
