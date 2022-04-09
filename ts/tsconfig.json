@@ -9,5 +9,12 @@
         //"lib":[]//库
         "outDir": "./ts",//编译后文件目录
         //"outFile": ""//将代码合并为一个文件，一般不用
+        "allowJs": false,//是否编译JS
+        "checkJs": false,//是否检查JS语法
+        "removeComments": false,
+        "noEmit": false,//不生成编译后文件
+        "noEmitOnError": false,
+        "alwaysStrict": false,
+        
     }
 }
