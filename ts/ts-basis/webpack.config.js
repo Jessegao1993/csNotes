@@ -37,9 +37,11 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
              }
          ]
      },
+     //配置webpack插件
      plugins:[
          new HtmlWebpackPlugin({
-             title:"webpage"
+             //title:"Webpage"
+             template:"./src/index.html"
          }),
          new CleanWebpackPlugin()
      ],
