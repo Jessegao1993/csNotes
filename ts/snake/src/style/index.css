@@ -24,7 +24,7 @@ body {
   border: 2px solid black;
   position: relative;
 }
-#main #stage #snack > div {
+#main #stage #snake > div {
   width: 10px;
   height: 10px;
   background-color: black;
