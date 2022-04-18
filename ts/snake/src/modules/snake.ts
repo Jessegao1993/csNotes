@@ -30,18 +30,18 @@ class Snake{
 
         // 禁止掉头
         if(this.bodies[1] && (this.bodies[1]as HTMLElement).offsetLeft === value){//存在身体并向左或右移动，坐标覆盖蛇头坐标
-             console.log("diaotou")
+             //alert("禁止掉头");
             // 向反方向继续移动
-            // if(value > this.X){//the snake turn when it goes right, it should go left
-            //     value = this.X - 10;
-            // }else{
-            //     value = this.X + 10;
-            // }
+            if(value > this.X){//the snake turn when it goes right, it should go left
+                value = this.X - 10;
+            }else{
+                value = this.X + 10;
+            }
         }
         
-        
-        this.head.style.left = value + 'px'; //移动头
         this.moveBody()// 移动身体
+        this.head.style.left = value + 'px'; //移动头
+       
          // 检查蛇是否撞到自己
         this.checkHeadBody();
     }
@@ -64,8 +64,9 @@ class Snake{
             }
         }
         
-        this.head.style.top = value + 'px'; //移动头
         this.moveBody()// 移动身体
+        this.head.style.top = value + 'px'; //移动头
+       
         // 检查蛇是否撞到自己
         this.checkHeadBody();
        
@@ -73,7 +74,8 @@ class Snake{
     
     // 蛇增加身体
     addBody(){
-        this.element.insertAdjacentHTML('beforeend','<div></div>');
+        console.log(this);
+        this.element.insertAdjacentHTML('beforeend','<div> </div>');
     }
 
     // 蛇移动身体
